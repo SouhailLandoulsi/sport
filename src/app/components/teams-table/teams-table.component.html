@@ -1,0 +1,45 @@
+<div class="site-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12" >
+        <form action="#" #searchTeamsByStadium="ngForm" (ngSubmit)="searchTeamByStadium()">
+         
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Enter Team Name"  [(ngModel)]="obj.stadium"  name="stadium" >
+          </div>
+        
+          <div class="form-group">
+            <input type="submit" class="btn btn-primary py-3 px-5" value="Search" >
+          </div>
+        </form>  
+      </div>
+    </div>
+  </div>
+</div>
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">name</th>
+      <th scope="col">Foundation</th>
+      <th scope="col">stadium</th>
+      <th scope="col">Owner</th>
+      <th scope="col" *ngIf="isDisplayed">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let t of teams">
+      <th scope="row">{{t._id}}</th>
+      <td>{{t.name}}</td>
+      <td>{{t.foundation}}</td>
+      <td>{{t.stadium}}</td>
+      <td>{{t.owner}}</td>
+      <td *ngIf="isDisplayed">
+        <button class="btn btn-neccessary" (click)="goToEditTeam(t._id)">Edit</button
+        ><button class="btn btn-success" (click)="goToDisplayTeam(t._id)">display</button
+        ><button class="btn btn-danger" (click)="deleteTeam(t._id)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

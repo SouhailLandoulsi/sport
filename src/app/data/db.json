@@ -1,0 +1,25 @@
+{
+    "allMatches": [
+        {
+            "id": 1,
+            "teamOne": "fcb",
+            "teamTwo": "rmd",
+            "scoreOne": "3",
+            "scoreTwo": "2"
+        },
+        {
+            "id": 2,
+            "teamOne": "juventus",
+            "teamTwo": "psj",
+            "scoreOne": "5",
+            "scoreTwo": "6"
+        },
+        {
+            "id": 3,
+            "teamOne": "Mun",
+            "teamTwo": "city",
+            "scoreOne": "3",
+            "scoreTwo": "4"
+        }
+    ]
+}

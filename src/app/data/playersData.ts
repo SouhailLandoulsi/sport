@@ -1,0 +1,1 @@
+export let allPlayers=[{id : 1, name: "leoMessi", age :"35", number :"10", position :"attk"},{id : 2, name: "cristiano", age :"37", number :"7", position :"mileuAttk"}]

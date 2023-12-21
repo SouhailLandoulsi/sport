@@ -1,0 +1,87 @@
+<div class="site-wrap">
+    <div class="site-mobile-menu site-navbar-target">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div>
+  
+    <app-banner [a]="title"></app-banner>
+  
+    <div class="site-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <form [formGroup]="stadiumForm">
+              <div class="form-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Name"
+                  formControlName="stadiumName"
+                  
+                />
+              </div>
+              <div
+                *ngIf="
+                  stadiumForm.controls['stadiumName'].invalid &&
+                  (stadiumForm.controls['stadiumName'].touched ||
+                    stadiumForm.controls['stadiumName'].dirty)
+                "
+              >
+                <div *ngIf="stadiumForm.controls['stadiumName'].errors.required">
+                   name is required
+                </div>
+                <div *ngIf="stadiumForm.controls['stadiumName'].errors.minlength">
+                   Name must contain at least 3 characters
+                </div>
+              </div>
+              <div class="form-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="capacity"
+                  formControlName="stadiumCapacity"
+                 
+                />
+              </div>
+              <div
+                *ngIf="
+                stadiumForm.controls['stadiumCapacity'].invalid &&
+                  (stadiumForm.controls['stadiumCapacity'].touched ||
+                    stadiumForm.controls['stadiumCapacity'].dirty)
+                "
+              >
+                <div *ngIf="stadiumForm.controls['stadiumCapacity'].errors.required">
+                  capacity is required
+                </div>
+                <div *ngIf="stadiumForm.controls['stadiumCapacity'].errors.min">
+                  capacity must contain at least 3 characters
+                </div>
+              </div>
+              <div class="form-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="city"
+                  formControlName="stadiumCity"
+                  
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  type="button"
+                  class="btn btn-primary py-3 px-5"
+                  value="{{title}}"
+                  (click)="addStadium()"
+                />
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,15 @@
+<app-banner [a]="title"></app-banner>
+
+<div class="site-section bg-dark">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="widget-next-match" *ngFor="let t of teams" >
+          <app-teams-table></app-teams-table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  

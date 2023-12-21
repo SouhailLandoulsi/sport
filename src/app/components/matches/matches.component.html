@@ -1,0 +1,22 @@
+<app-banner [a]="title"></app-banner>
+
+<div style="position: absolute; margin-top: -20%; margin-left: 41%">
+  <form>
+    <div class="form-group">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="amira bouteuuuuuu"
+        [(ngModel)]="term"
+        name="search"
+      />
+    </div>
+  </form>
+</div>
+
+<div *ngIf="matches.length == 0" class="text-danger">
+  there is no matches found
+</div>
+<div *ngFor="let match of matches | custimisedFilter : term">
+  <app-result [m]="match"></app-result>
+</div>

@@ -1,0 +1,110 @@
+<div class="site-wrap">
+  <div class="site-mobile-menu site-navbar-target">
+    <div class="site-mobile-menu-header">
+      <div class="site-mobile-menu-close">
+        <span class="icon-close2 js-menu-toggle"></span>
+      </div>
+    </div>
+    <div class="site-mobile-menu-body"></div>
+  </div>
+
+  <app-banner [a]="title"></app-banner>
+
+  <div class="site-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <form [formGroup]="playerForm">
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Name"
+                formControlName="name"
+                [(ngModel)]="player.name"
+              />
+            </div>
+            <div
+              *ngIf="
+                playerForm.controls['name'].invalid &&
+                (playerForm.controls['name'].touched ||
+                  playerForm.controls['name'].dirty)
+              "
+            >
+              <div *ngIf="playerForm.controls['name'].errors.required">
+                player name is required
+              </div>
+              <div *ngIf="playerForm.controls['name'].errors.minlength">
+                Player Name must contain at least 3 characters
+              </div>
+            </div>
+            <div class="form-group">
+              <input
+                type="number"
+                class="form-control"
+                placeholder="Age"
+                formControlName="age"
+                [(ngModel)]="player.age"
+              />
+            </div>
+            <div
+              *ngIf="
+                playerForm.controls['age'].invalid &&
+                (playerForm.controls['age'].touched ||
+                  playerForm.controls['age'].dirty)
+              "
+            >
+              <div *ngIf="playerForm.controls['age'].errors.required">
+                Age is required
+              </div>
+              <div *ngIf="playerForm.controls['age'].errors.min">
+                Age must contain at least 3 characters
+              </div>
+            </div>
+            <div class="form-group">
+              <input
+                type="number"
+                class="form-control"
+                placeholder="Number"
+                formControlName="number"
+                [(ngModel)]="player.number"
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Position "
+                formControlName="position"
+                [(ngModel)]="player.position"
+              />
+            </div>
+            <div class="form-group">
+              <select
+                class="form-group"
+                name="zefzefzefz"
+                formControlName="team"
+                [(ngModel)]="player.team"
+                style="width: 100%; color: black"
+                (change)="selectedTeam($event)"
+              >
+                <option *ngFor="let team of teams" [value]="team._id">
+                  {{ team.name }}
+                </option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <input
+                type="submit"
+                class="btn btn-primary py-3 px-5"
+                value="Add/Edit"
+                (click)="addOrEditPlayer()"
+              />
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
